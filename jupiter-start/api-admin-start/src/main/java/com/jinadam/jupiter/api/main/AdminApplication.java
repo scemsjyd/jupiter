@@ -1,4 +1,4 @@
-package com.jinadam.jupiter.api.admin;
+package com.jinadam.jupiter.api.main;
 
 
 import org.springframework.boot.SpringApplication;

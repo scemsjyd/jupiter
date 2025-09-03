@@ -1,2 +1,14 @@
 server:
   port: 8001
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  show-actuator: true
+  use-management-port: true
+management:
+  server:
+    port: 18001
+  endpoints:
+    web:
+      exposure:
+        include: "*"

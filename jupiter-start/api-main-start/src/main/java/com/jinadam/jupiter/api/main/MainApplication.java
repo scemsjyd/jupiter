@@ -1,8 +1,9 @@
-package com.jinadam.jupiter.api.admin;
+package com.jinadam.jupiter.api.main;
 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Adam

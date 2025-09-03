@@ -10,4 +10,11 @@
     <artifactId>biz-shared</artifactId>
     <name>biz-shared</name>
     <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jinadam</groupId>
+            <artifactId>core-service</artifactId>
+        </dependency>
+    </dependencies>
 </project>

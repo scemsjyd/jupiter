@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinadam.jupiter.common.dal.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.jinadam.jupiter.common.dal.model.UsersPO">
+    <!--@mbg.generated-->
+    <!--@Table public.users-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="secret" jdbcType="VARCHAR" property="secret" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin" />
+    <result column="last_access" jdbcType="TIMESTAMP" property="lastAccess" />
+    <result column="privacy" jdbcType="VARCHAR" property="privacy" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="uploaded" jdbcType="BIGINT" property="uploaded" />
+    <result column="downloaded" jdbcType="BIGINT" property="downloaded" />
+    <result column="seed_time" jdbcType="BIGINT" property="seedTime" />
+    <result column="leech_time" jdbcType="BIGINT" property="leechTime" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="passkey" jdbcType="VARCHAR" property="passkey" />
+    <result column="inviter" jdbcType="BIGINT" property="inviter" />
+    <result column="invite_num" jdbcType="BIGINT" property="inviteNum" />
+    <result column="seed_bonus" jdbcType="NUMERIC" property="seedBonus" />
+    <result column="seed_points" jdbcType="NUMERIC" property="seedPoints" />
+    <result column="bonus_per_hour" jdbcType="NUMERIC" property="bonusPerHour" />
+    <result column="points_per_hour" jdbcType="NUMERIC" property="pointsPerHour" />
+    <result column="totp" jdbcType="VARCHAR" property="totp" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="added" jdbcType="TIMESTAMP" property="added" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, "password", secret, email, gender, last_login, last_access, privacy, 
+    avatar, uploaded, downloaded, seed_time, leech_time, country, passkey, inviter, invite_num, 
+    seed_bonus, seed_points, bonus_per_hour, points_per_hour, totp, info, "status", added
+  </sql>
+</mapper>

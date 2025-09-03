@@ -7,8 +7,8 @@
         <artifactId>jupiter</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>jupiter-web</artifactId>
-    <name>jupiter-web</name>
+    <artifactId>jupiter-biz</artifactId>
+    <name>jupiter-biz</name>
     <url>http://maven.apache.org</url>
     <packaging>pom</packaging>
 </project>
