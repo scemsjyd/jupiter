@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.jinadam</groupId>
+    <artifactId>jupiter</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>jupiter</name>
+    <modules>
+        <module>jupiter-api</module>
+        <module>jupiter-test</module>
+        <module>jupiter-common</module>
+        <module>jupiter-core</module>
+        <module>jupiter-start</module>
+        <module>jupiter-biz/biz-shared</module>
+        <module>jupiter-biz/biz-service</module>
+        <module>jupiter-biz/biz-scheduler</module>
+        <module>jupiter-start/api-admin-start</module>
+        <module>jupiter-start/api-main-start</module>
+        <module>jupiter-api/api-main</module>
+        <module>jupiter-api/api-admin</module>
+        <module>jupiter-api/api-tracker</module>
+        <module>jupiter-start/api-tracker-start</module>
+    </modules>
+    <packaging>pom</packaging>
+    <description>jupiter</description>
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
