@@ -45,11 +45,92 @@
     </scm>
     <properties>
         <java.version>17</java.version>
+        <sa-token.version>1.44.0</sa-token.version>
+        <postgresql.version>42.7.5</postgresql.version>
+        <mybatis-plus.version>3.5.14</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
+            <!--            jupiter-api-->
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>api-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>api-main</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>api-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--            jupiter-common-->
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>common-dal</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>common-facade</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>common-integration</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>common-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--            jupiter-biz-->
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>biz-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>biz-shared</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>biz-scheduler</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--            jupiter-core-->
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>core-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jinadam</groupId>
+                <artifactId>core-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot3-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

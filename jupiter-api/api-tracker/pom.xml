@@ -10,4 +10,15 @@
     <artifactId>api-tracker</artifactId>
     <name>api-tracker</name>
     <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jinadam</groupId>
+            <artifactId>biz-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jinadam</groupId>
+            <artifactId>biz-shared</artifactId>
+        </dependency>
+    </dependencies>
 </project>
