@@ -11,4 +11,10 @@
     <name>jupiter-biz</name>
     <url>http://maven.apache.org</url>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>biz-shared</module>
+        <module>biz-service</module>
+        <module>biz-scheduler</module>
+    </modules>
 </project>

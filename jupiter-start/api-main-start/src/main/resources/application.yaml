@@ -1,10 +1,11 @@
+debug: true
 server:
   port: 8001
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
+    path: /doc.html
   show-actuator: true
-  use-management-port: true
+  use-management-port: false
 management:
   server:
     port: 18001
@@ -12,3 +13,21 @@ management:
     web:
       exposure:
         include: "*"
+spring:
+  jackson:
+    time-zone: Asia/Shanghai
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://db.ihyaokdumptpwfyaioeu.supabase.co:5432/postgres
+    username: postgres
+    password: zMctLE7WhXLL7P
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: select 1
+      pool-name: JupiterHikariPool
+      connection-timeout: 20000
+      idle-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 20
+mybatis-plus:
+  mapper-locations: '[classpath*:/mapper/**/*.xml]'

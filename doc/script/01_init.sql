@@ -43,7 +43,7 @@ comment on column users.email is '邮箱';
 comment on column users.gender is '性别';
 comment on column users.last_login is '上次登陆时间';
 comment on column users.last_access is '上次访问时间';
-comment on column users.privacy is '隐私等级：low 低， normal0 正常，strong 强';
+comment on column users.privacy is '隐私等级：low 低， normal 正常，strong 强';
 comment on column users.avatar is '头像';
 comment on column users.uploaded is '上传量';
 comment on column users.downloaded is '下载量';

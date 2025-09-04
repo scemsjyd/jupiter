@@ -7,10 +7,13 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 /**
  * 用户表
+ *
+ * @author Adam
  */
 @Data
 @TableName(value = "users")
@@ -55,13 +58,13 @@ public class UsersPO {
      * 上次登陆时间
      */
     @TableField(value = "last_login")
-    private Date lastLogin;
+    private LocalDateTime lastLogin;
 
     /**
      * 上次访问时间
      */
     @TableField(value = "last_access")
-    private Date lastAccess;
+    private LocalDateTime lastAccess;
 
     /**
      * 隐私等级：low 低， normal0 正常，strong 强
@@ -169,5 +172,5 @@ public class UsersPO {
      * 加入时间
      */
     @TableField(value = "added")
-    private Date added;
+    private LocalDateTime added;
 }

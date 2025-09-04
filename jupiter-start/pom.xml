@@ -10,4 +10,10 @@
     <name>jupiter-start</name>
     <url>http://maven.apache.org</url>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>api-admin-start</module>
+        <module>api-main-start</module>
+        <module>api-tracker-start</module>
+    </modules>
 </project>

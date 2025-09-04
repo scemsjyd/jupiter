@@ -10,4 +10,10 @@
     <name>jupiter-web</name>
     <url>http://maven.apache.org</url>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>api-main</module>
+        <module>api-admin</module>
+        <module>api-tracker</module>
+    </modules>
 </project>

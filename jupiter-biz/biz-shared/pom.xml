@@ -16,5 +16,9 @@
             <groupId>com.jinadam</groupId>
             <artifactId>core-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jinadam</groupId>
+            <artifactId>common-facade</artifactId>
+        </dependency>
     </dependencies>
 </project>
