@@ -1,11 +1,16 @@
 package com.jinadam.jupiter.common.util.web;
 
 
+import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.SaTokenException;
 import com.jinadam.jupiter.common.util.JSONUtil;
+import com.jinadam.jupiter.common.util.constants.ErrorCode;
 import com.jinadam.jupiter.common.util.core.ApiResult;
+import com.jinadam.jupiter.common.util.exception.AuthException;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,6 +29,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @Slf4j
 @RestControllerAdvice(basePackages = "com.jinadam.jupiter")
 public class ApiResultAdvice implements ResponseBodyAdvice<Object> {
+
+    public ApiResultAdvice(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
+
+    private final MessageSource messageSource;
+
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         // 如果返回类型已经是 Result，则不需要再次封装
@@ -55,13 +67,39 @@ public class ApiResultAdvice implements ResponseBodyAdvice<Object> {
     @ExceptionHandler(value = Exception.class)
     public ApiResult<?> defaultExceptionHandler(Exception ex, HttpServletResponse response) {
         log.error("unknown exception", ex);
-        return ApiResult.fail(HttpStatus.INTERNAL_SERVER_ERROR.value(), null);
+        String errorMessage = messageSource.getMessage(ErrorCode.COMMON.ERROR, null, LocaleContextHolder.getLocale());
+        return ApiResult.fail(HttpStatus.INTERNAL_SERVER_ERROR.value(), errorMessage);
+    }
+
+
+    @ExceptionHandler(value = NotPermissionException.class)
+    @ResponseStatus(value = HttpStatus.FORBIDDEN)
+    public ApiResult<?> notPermissionExceptionHandler(NotPermissionException ex, HttpServletResponse response) {
+        log.error("sa exception", ex);
+        String errorMessage = messageSource.getMessage(ErrorCode.AUTH.NOT_PERMISSION, null, LocaleContextHolder.getLocale());
+        return ApiResult.fail(HttpStatus.FORBIDDEN.value(), errorMessage);
     }
 
     @ExceptionHandler(value = SaTokenException.class)
     @ResponseStatus(value = HttpStatus.FORBIDDEN)
-    public ApiResult<?> saExceptionHandler(SaTokenException ex, HttpServletResponse response) {
+    public ApiResult<?> saTokenExceptionHandler(SaTokenException ex, HttpServletResponse response) {
         log.error("sa exception", ex);
-        return ApiResult.fail(HttpStatus.FORBIDDEN.value(), ex.getMessage());
+        String errorMessage = messageSource.getMessage(ErrorCode.AUTH.FAIL, null, LocaleContextHolder.getLocale());
+        return ApiResult.fail(HttpStatus.FORBIDDEN.value(), errorMessage);
+    }
+
+    /**
+     * Custom authentication exception
+     *
+     * @param ex       exception
+     * @param response response
+     * @return ApiResult
+     */
+    @ExceptionHandler(value = AuthException.class)
+    @ResponseStatus(value = HttpStatus.FORBIDDEN)
+    public ApiResult<?> authExceptionHandler(AuthException ex, HttpServletResponse response) {
+        log.error("auth exception", ex);
+        String errorMessage = messageSource.getMessage(ex.getMessage(), null, LocaleContextHolder.getLocale());
+        return ApiResult.fail(HttpStatus.FORBIDDEN.value(), errorMessage);
     }
 }

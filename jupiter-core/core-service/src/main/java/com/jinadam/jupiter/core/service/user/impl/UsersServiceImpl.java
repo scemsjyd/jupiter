@@ -1,10 +1,8 @@
 package com.jinadam.jupiter.core.service.user.impl;
 
-import com.jinadam.jupiter.common.dal.mapper.UsersMapper;
-import com.jinadam.jupiter.common.dal.model.UsersPO;
 import com.jinadam.jupiter.core.model.user.UsersEntity;
 import com.jinadam.jupiter.core.service.user.UsersService;
-import com.jinadam.jupiter.core.service.user.converter.UsersConverter;
+import com.jinadam.jupiter.core.service.user.repo.UsersRepository;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +13,11 @@ import org.springframework.stereotype.Service;
 public class UsersServiceImpl implements UsersService {
 
     @Resource
-    private UsersMapper usersMapper;
+    UsersRepository usersRepository;
+
 
     @Override
     public UsersEntity findById(Long id) {
-        UsersPO po = usersMapper.selectById(id);
-        return UsersConverter.INSTANCE.toS(po);
+        return usersRepository.findById(id);
     }
 }

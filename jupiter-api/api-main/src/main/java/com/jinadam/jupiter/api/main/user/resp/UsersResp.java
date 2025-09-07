@@ -26,18 +26,6 @@ public class UsersResp {
     private String username;
 
     /**
-     * 用户密码
-     */
-    @Schema(description = "用户密码")
-    private String password;
-
-    /**
-     * 密钥
-     */
-    @Schema(description = "密钥")
-    private String secret;
-
-    /**
      * 邮箱
      */
     @Schema(description = "邮箱")
@@ -104,12 +92,6 @@ public class UsersResp {
     private String country;
 
     /**
-     * 种子密钥
-     */
-    @Schema(description = "种子密钥")
-    private String passkey;
-
-    /**
      * 邀请人
      */
     @Schema(description = "邀请人")
@@ -144,12 +126,6 @@ public class UsersResp {
      */
     @Schema(description = "时积分")
     private BigDecimal pointsPerHour;
-
-    /**
-     * 二次验证
-     */
-    @Schema(description = "二次验证")
-    private String totp;
 
     /**
      * 个人简介

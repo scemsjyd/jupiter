@@ -14,9 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 "com.jinadam.jupiter.api.main",
                 "com.jinadam.jupiter.core",
                 "com.jinadam.jupiter.common",
-                "com.jinadam.jupiter.biz"
+                "com.jinadam.jupiter.biz",
         })
-@MapperScan("com.jinadam.jupiter.common")
+@MapperScan("com.jinadam.jupiter.common.dal")
 public class MainApplication {
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class, args);

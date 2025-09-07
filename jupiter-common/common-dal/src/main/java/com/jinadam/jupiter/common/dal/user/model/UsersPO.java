@@ -1,4 +1,4 @@
-package com.jinadam.jupiter.common.dal.model;
+package com.jinadam.jupiter.common.dal.user.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

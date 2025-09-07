@@ -18,6 +18,9 @@ public class ApiResult<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    private static final Integer SUCCESS = 200;
+    private static final Integer ERROR = 500;
+
     /**
      * response result status code
      */
@@ -38,7 +41,7 @@ public class ApiResult<T> implements Serializable {
     }
 
     public ApiResult(T data) {
-        this.code = 200;
+        this.code = SUCCESS;
         this.data = data;
     }
 
@@ -54,7 +57,7 @@ public class ApiResult<T> implements Serializable {
     }
 
     public static <T> ApiResult<T> success(T data) {
-        return new ApiResult<>(ErrorCode.COMMON.SUCCESS, data);
+        return new ApiResult<>(SUCCESS, data);
     }
 
     public static <T> ApiResult<T> fail(Integer code, String msg) {

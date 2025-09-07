@@ -10,4 +10,22 @@
     <artifactId>biz-service</artifactId>
     <name>biz-facade</name>
     <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>com.jinadam</groupId>
+            <artifactId>common-facade</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jinadam</groupId>
+            <artifactId>biz-shared</artifactId>
+        </dependency>
+    </dependencies>
 </project>

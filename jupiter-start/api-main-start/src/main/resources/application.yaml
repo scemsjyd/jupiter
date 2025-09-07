@@ -16,11 +16,17 @@ management:
 spring:
   jackson:
     time-zone: Asia/Shanghai
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  web:
+    locale: zh_CN
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://db.ihyaokdumptpwfyaioeu.supabase.co:5432/postgres
-    username: postgres
-    password: zMctLE7WhXLL7P
+    url: jdbc:postgresql://ep-blue-math-a1awxwfz-pooler.ap-southeast-1.aws.neon.tech/jupiter?sslmode=require&channel_binding=require
+#    url: jdbc:postgresql://db.ihyaokdumptpwfyaioeu.supabase.co:5432/postgres
+    username: jupiter
+    password: npg_WfQHZOEJ6n2A
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-test-query: select 1
@@ -29,5 +35,25 @@ spring:
       idle-timeout: 30000
       minimum-idle: 5
       maximum-pool-size: 20
+  data:
+    redis:
+      database: 0
+      host: redis-11513.crce178.ap-east-1-1.ec2.redns.redis-cloud.com
+      port: 11513
+      username: default
+      password: OK62hd5FK5ygriOw4WAp1lyAoXIfaNpK
+      timeout: 5s
+      connect-timeout: 5s
+
+
 mybatis-plus:
   mapper-locations: '[classpath*:/mapper/**/*.xml]'
+  global-config:
+    banner: false
+
+sa-token:
+  is-print: false
+  token-name: x-jupiter-auth
+  timeout: 31536000 # 一年
+  token-style: simple-uuid
+  is-log: true

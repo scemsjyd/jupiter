@@ -29,7 +29,7 @@ public class UsersController {
 
     @Operation(summary = "当前用户信息")
     @GetMapping("/profile")
-    @SaCheckPermission(value = {"user.profile"})
+//    @SaCheckPermission(value = {"user.profile"})
     public UsersResp findById() {
         UsersDTO usersDTO = usersManager.findById(1L);
         return UserApiConverter.INSTANCE.toS(usersDTO);
