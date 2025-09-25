@@ -1,5 +1,13 @@
 -- 创建序列
 CREATE SEQUENCE user_id_seq INCREMENT BY 1 START WITH 10000001 CACHE 1;
+-- 创建updated_at自动更新的触发函数
+CREATE OR REPLACE FUNCTION set_updated_at()
+    RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at := NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
 -- 创建表
 -- 创建用户表
@@ -30,7 +38,8 @@ create table users
     totp            varchar        null,
     info            text           null,
     status          varchar        null     default 'pending',
-    added           timestamp      null     default now(),
+    created_at       timestamp      null     default now(),
+    updated_at       timestamp      null     default now(),
     primary key (id)
 );
 
@@ -60,6 +69,30 @@ comment on column users.points_per_hour is '时积分';
 comment on column users.totp is '二次验证';
 comment on column users.info is '个人简介';
 comment on column users.status is '状态：pending 待确认，confirmed 确认，banned 被禁用';
-comment on column users.added is '加入时间';
+comment on column users.created_at is '加入时间';
+comment on column users.updated_at is '更新时间';
 
+CREATE OR REPLACE TRIGGER trigger_set_updated_at
+    BEFORE UPDATE ON users
+    FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
 -- 创建用户表结束
+
+-- 初始化超级管理员信息
+DO $$
+    DECLARE
+        v_secret    TEXT;
+        v_password TEXT := 'password';
+    BEGIN
+        v_secret := (SELECT STRING_AGG(
+                       substr('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+                              floor(random()*62+1)::int, 1), ''
+               ) AS random_str
+        FROM generate_series(1,16));
+
+        INSERT INTO public.users
+        (id, username, "password", secret, email, gender, last_login, last_access, privacy, avatar, uploaded, downloaded, seed_time, leech_time, country, passkey, inviter, invite_num, seed_bonus, seed_points, bonus_per_hour, points_per_hour, totp, info, status, created_at, updated_at)
+        VALUES(1, 'admin', md5(v_secret + md5(v_password) + v_secret), v_secret, '', 'male', '', '', 'normal'::character varying, '', 0, 0, 0, 0, '', md5(v_secret), 0, 0, 0, 0, 0, 0, '', '', 'confirmed', now(), now());
+    END;
+$$;
+

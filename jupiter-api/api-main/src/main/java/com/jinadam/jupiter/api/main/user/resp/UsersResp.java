@@ -1,6 +1,7 @@
 package com.jinadam.jupiter.api.main.user.resp;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -142,6 +143,10 @@ public class UsersResp {
     /**
      * 加入时间
      */
-    @Schema(description = "加入时间")
-    private LocalDateTime added;
+    private LocalDateTime createdAt;
+
+    /**
+     * 更新时间
+     */
+    private LocalDateTime updatedAt;
 }

@@ -3,6 +3,7 @@ package com.jinadam.jupiter.api.main.user.controller;
 
 import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckPermission;
+import cn.dev33.satoken.annotation.SaMode;
 import com.jinadam.jupiter.api.main.user.converter.UserApiConverter;
 import com.jinadam.jupiter.api.main.user.resp.UsersResp;
 import com.jinadam.jupiter.biz.shared.user.UsersManager;
@@ -29,7 +30,6 @@ public class UsersController {
 
     @Operation(summary = "当前用户信息")
     @GetMapping("/profile")
-//    @SaCheckPermission(value = {"user.profile"})
     public UsersResp findById() {
         UsersDTO usersDTO = usersManager.findById(1L);
         return UserApiConverter.INSTANCE.toS(usersDTO);

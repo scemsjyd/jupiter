@@ -29,12 +29,37 @@
     <result column="totp" jdbcType="VARCHAR" property="totp" />
     <result column="info" jdbcType="VARCHAR" property="info" />
     <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="added" jdbcType="TIMESTAMP" property="added" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
   <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, username, "password", secret, email, gender, last_login, last_access, privacy, 
-    avatar, uploaded, downloaded, seed_time, leech_time, country, passkey, inviter, invite_num, 
-    seed_bonus, seed_points, bonus_per_hour, points_per_hour, totp, info, "status", added
+      <!--@mbg.generated-->
+      id,
+      username,
+      "password",
+      secret,
+      email,
+      gender,
+      last_login,
+      last_access,
+      privacy,
+      avatar,
+      uploaded,
+      downloaded,
+      seed_time,
+      leech_time,
+      country,
+      passkey,
+      inviter,
+      invite_num,
+      seed_bonus,
+      seed_points,
+      bonus_per_hour,
+      points_per_hour,
+      totp,
+      info,
+      "status",
+      created_at,
+      updated_at
   </sql>
 </mapper>

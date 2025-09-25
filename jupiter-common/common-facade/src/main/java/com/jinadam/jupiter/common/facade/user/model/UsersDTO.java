@@ -142,5 +142,10 @@ public class UsersDTO implements Serializable {
     /**
      * 加入时间
      */
-    private LocalDateTime added;
+    private LocalDateTime createdAt;
+
+    /**
+     * 更新时间
+     */
+    private LocalDateTime updatedAt;
 }

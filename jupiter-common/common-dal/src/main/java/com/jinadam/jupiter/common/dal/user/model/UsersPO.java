@@ -171,6 +171,12 @@ public class UsersPO {
     /**
      * 加入时间
      */
-    @TableField(value = "added")
-    private LocalDateTime added;
+    @TableField(value = "created_at")
+    private LocalDateTime createdAt;
+
+    /**
+     * 更新时间
+     */
+    @TableField(value = "updated_at")
+    private LocalDateTime updatedAt;
 }

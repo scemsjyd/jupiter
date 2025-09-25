@@ -38,10 +38,10 @@ spring:
   data:
     redis:
       database: 0
-      host: redis-11513.crce178.ap-east-1-1.ec2.redns.redis-cloud.com
-      port: 11513
+      host: redis-13094.c334.asia-southeast2-1.gce.redns.redis-cloud.com
+      port: 13094
       username: default
-      password: OK62hd5FK5ygriOw4WAp1lyAoXIfaNpK
+      password: xxdUqsbszqN0tUWtdYThtEPzFvVqpuef
       timeout: 5s
       connect-timeout: 5s
 

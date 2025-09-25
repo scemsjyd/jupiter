@@ -42,6 +42,7 @@ public class ApiResult<T> implements Serializable {
 
     public ApiResult(T data) {
         this.code = SUCCESS;
+        this.msg = "SUCCESS";
         this.data = data;
     }
 
@@ -57,7 +58,7 @@ public class ApiResult<T> implements Serializable {
     }
 
     public static <T> ApiResult<T> success(T data) {
-        return new ApiResult<>(SUCCESS, data);
+        return new ApiResult<>(SUCCESS, "SUCCESS", data);
     }
 
     public static <T> ApiResult<T> fail(Integer code, String msg) {
