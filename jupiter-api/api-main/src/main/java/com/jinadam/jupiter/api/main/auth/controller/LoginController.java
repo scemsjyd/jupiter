@@ -67,4 +67,15 @@ public class LoginController {
         return false;
     }
 
+    @Operation(summary = "重置密码")
+    @GetMapping("/reset-password")
+    public Boolean resetPassword(@RequestBody ChangePasswordReq req) {
+        boolean bool = authFacade.changePassword(req.getUsername(), req.getOldPassword(), req.getNewPassword());
+        if (bool) {
+            StpUtil.logout();
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -140,6 +140,26 @@ public class UsersDTO implements Serializable {
     private String status;
 
     /**
+     * 逻辑删除
+     */
+    private Boolean deleted;
+
+    /**
+     * 版本号
+     */
+    private Long version;
+
+    /**
+     * 创建者ID
+     */
+    private Long createdBy;
+
+    /**
+     * 更新者ID
+     */
+    private Long updatedBy;
+
+    /**
      * 加入时间
      */
     private LocalDateTime createdAt;

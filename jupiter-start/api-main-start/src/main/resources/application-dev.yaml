@@ -1,0 +1,51 @@
+springdoc:
+  swagger-ui:
+    path: /doc.html
+  show-actuator: true
+  use-management-port: false
+management:
+  server:
+    port: 18001
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://ep-blue-math-a1awxwfz-pooler.ap-southeast-1.aws.neon.tech/jupiter?sslmode=require&channel_binding=require
+    username: jupiter
+    password: npg_WfQHZOEJ6n2A
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: select 1
+      pool-name: JupiterHikariPool
+      connection-timeout: 20000
+      idle-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 20
+  data:
+    redis:
+      database: 0
+      host: redis-13094.c334.asia-southeast2-1.gce.redns.redis-cloud.com
+      port: 13094
+      password: xxdUqsbszqN0tUWtdYThtEPzFvVqpuef
+      timeout: 5s
+      connect-timeout: 5s
+  mail:
+    default-encoding: UTF-8
+    protocol: smtp
+    host: smtp.163.com
+    username: admin@163.com
+    password: xxx
+    port: 465
+    ssl:
+      enabled: true
+    test-connection: false
+
+sa-token:
+  is-print: false
+  token-name: x-jupiter-auth
+  timeout: 31536000 # 一年
+  token-style: simple-uuid
+  is-log: true

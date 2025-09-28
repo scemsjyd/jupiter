@@ -24,6 +24,7 @@ public class ErrorCode {
     public static class BIZ {
         // reset password
         public static final String USERNAME_NOT_EXIST = "biz.username_not_exist";
+        public static final String EMAIL_SEND_ERROR = "biz.email_send_error";
     }
 
 

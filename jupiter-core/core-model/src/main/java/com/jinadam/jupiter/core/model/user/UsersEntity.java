@@ -5,6 +5,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * @author Adam
+ */
 @Data
 public class UsersEntity {
     /**
@@ -131,6 +134,26 @@ public class UsersEntity {
      * 状态：pending 待确认，confirmed 确认，banned 被禁用
      */
     private String status;
+
+    /**
+     * 逻辑删除
+     */
+    private Boolean deleted;
+
+    /**
+     * 版本号
+     */
+    private Long version;
+
+    /**
+     * 创建者ID
+     */
+    private Long createdBy;
+
+    /**
+     * 更新者ID
+     */
+    private Long updatedBy;
 
     /**
      * 加入时间

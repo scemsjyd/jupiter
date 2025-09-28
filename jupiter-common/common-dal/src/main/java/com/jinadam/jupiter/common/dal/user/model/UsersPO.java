@@ -1,9 +1,12 @@
 package com.jinadam.jupiter.common.dal.user.model;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -16,7 +19,7 @@ import java.time.LocalDateTime;
  * @author Adam
  */
 @Data
-@TableName(value = "users")
+@TableName(value = "t_users")
 public class UsersPO {
     /**
      * 用户主键
@@ -167,6 +170,32 @@ public class UsersPO {
      */
     @TableField(value = "status")
     private String status;
+
+    /**
+     * 逻辑删除
+     */
+    @TableField(value = "deleted")
+    @TableLogic(value = "0", delval = "1")
+    private Boolean deleted;
+
+    /**
+     * 版本号
+     */
+    @TableField(value = "version")
+    @Version
+    private Long version;
+
+    /**
+     * 创建者ID
+     */
+    @TableField(value = "created_by", fill = FieldFill.INSERT)
+    private Long createdBy;
+
+    /**
+     * 更新者ID
+     */
+    @TableField(value = "updated_by", fill = FieldFill.UPDATE)
+    private Long updatedBy;
 
     /**
      * 加入时间
